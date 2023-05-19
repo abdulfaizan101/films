@@ -21,13 +21,7 @@ export class FilmService {
     return this.filmRepository.findOne({where: {id}});
   }
 
-  
-  // async testing(token: string){
-  //   return {"abc":this.jwtService.verify(token)};
-  // }
-
   async createFilm(filmDto: FilmDto) {
-    console.log('aaa',filmDto)
     try {      
       let data = this.jwtService.verify(filmDto.token);
       if(data.id){
@@ -41,21 +35,37 @@ export class FilmService {
   }
 
   async updateFilm(id: number, filmDto: FilmDto) {
-    const film = await this.getFilmById(id);
-    if (!film) {
-      throw new Error('Film not found');
-    }
+    try {      
+      let data = this.jwtService.verify(filmDto.token);
+      if(data.id){
+        const film = await this.getFilmById(id);
+        if (!film) {
+          throw new Error('Film not found');
+        }
 
-    const updatedFilm = { ...film, ...filmDto };
-    return this.filmRepository.save(updatedFilm);
+        const updatedFilm = { ...film, ...filmDto };
+        return this.filmRepository.save(updatedFilm);
+      }
+      return 'Error';
+    } catch (error) {
+      return "Token Invalid"      
+    }
   }
 
-  async deleteFilm(id: number) {
-    const film = await this.getFilmById(id);
-    if (!film) {
-      throw new Error('Film not found');
-    }
+  async deleteFilm(id: number, token: string) {
+    try {      
+      let data = this.jwtService.verify(token);
+      if(data.id){
+        const film = await this.getFilmById(id);
+        if (!film) {
+          throw new Error('Film not found');
+        }
 
-    return this.filmRepository.remove(film);
+        return this.filmRepository.remove(film);
+      }
+      return 'Error';
+    } catch (error) {
+     return "Token Invalid"      
+    }
   }
 }

@@ -27,7 +27,7 @@ export class FilmController {
   }
 
   @Delete(':id')
-  deleteFilm(@Param('id') id: number) {
-    return this.filmService.deleteFilm(id);
+  deleteFilm(@Param('id') id: number, @Param('token') token: string) {
+    return this.filmService.deleteFilm(id,token);
   }
 }
