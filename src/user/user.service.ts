@@ -30,7 +30,12 @@ export class UsersService {
   }
 
   async testing(token: string){
-    return {"abc":this.jwtService.verify(token)};
+    try {
+      console.log('ddddee',this.jwtService.verify(token));
+      return {"abc":this.jwtService.verify(token)};      
+    } catch (error) {
+      return "Something went wrong."      
+    }
   }
 
   async login(username: string, password: string) {
