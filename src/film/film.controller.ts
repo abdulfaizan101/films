@@ -1,10 +1,11 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, Query } from '@nestjs/common';
 import { FilmService } from './film.service';
 import { FilmDto } from './dto/film.dto';
+import { ElasticsearchsService } from './elasticsearchs.service';
 
 @Controller('films')
 export class FilmController {
-  constructor(private readonly filmService: FilmService) {}
+  constructor(private readonly filmService: FilmService,private readonly elasticsearchService: ElasticsearchsService) {}
 
   @Get()
   getAllFilms() {
@@ -16,9 +17,18 @@ export class FilmController {
     return this.filmService.getFilmById(id,-2);
   }
 
+  @Get('name/:name')
+  getElasticFilmByName(@Param('name') name: string ) {
+    console.log('eeeeeeeeee',name);
+    return this.elasticsearchService.searchIndexData(name) 
+  }
+
   @Post()
   createFilm(@Body() filmDto: FilmDto) {
-    return this.filmService.createFilm(filmDto);
+    let a = this.filmService.createFilm(filmDto);
+    this.elasticsearchService.createFilm("test", filmDto);
+    
+    return this.elasticsearchService.getAllIndexData();
   }
 
   @Put(':id')

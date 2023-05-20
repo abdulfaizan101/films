@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Film } from './film.entity';
 import { FilmDto } from './dto/film.dto';
+// import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 @Injectable()
 export class FilmService {
