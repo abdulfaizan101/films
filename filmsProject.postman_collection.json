@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "b4abbf93-2398-4819-8cb0-7085bea33528",
+		"name": "filmsProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18521570"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/users/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\":\"abdul\", \"password\":\"123\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/users/test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\":\"abdul\", \"password\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmR1bCIsImlhdCI6MTY4NDUyMDA5NywiZXhwIjoxNjg0NTIwMTE3fQ.DgfKVz0Znvf1_BzMtMmpneu2CUYLE532CujJgVZlH6c\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/test",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/films/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"abdul\",\r\n  \"description\": \"khan movie\",\r\n  \"releaseDate\": \"2020-01-01\",\r\n  \"ticketPrice\": 122,\r\n  \"country\": \"pakistan\",\r\n  \"genre\": \"test\",\r\n  \"photo\": \"anbc\",\r\n  \"userId\": 1,\r\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmR1bCIsImlhdCI6MTY4NDU4NjY3OSwiZXhwIjoxNjg0NTkwMjc5fQ.EyB_FxAb0WJtiIr_amcfnMCmFVqF9_LMtR_Ca59a1CY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/films/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"films",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/comments/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"comment\": \"khof\",\r\n  \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmR1bCIsImlhdCI6MTY4NDU1OTkwNCwiZXhwIjoxNjg0NTU5OTI0fQ.EyGW2GCDL67c5YvuwZCaGMAdrJt9c4rPDloFM8NUyu8\",\r\n  \"filmId\":2,\r\n  \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/comments/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/films/",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"khof\",\r\n  \"description\": \"sanjo movie\",\r\n  \"releaseDate\": \"2020-01-01\",\r\n  \"ticketPrice\": 122,\r\n  \"country\": \"pakistan\",\r\n  \"genre\": \"test\",\r\n  \"photo\": \"anbc\",\r\n  \"userId\": 1,\r\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmR1bCIsImlhdCI6MTY4NDU2MDk2MywiZXhwIjoxNjg0NTY0NTYzfQ.RK0OxRRMbpjOmKBdIUUMEpM7SdvRwppHJ_VS9t6nsoI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/films/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"films",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/ratings/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": 3,\r\n    \"filmId\": 1,\r\n    \"userId\": 1,\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhYmR1bCIsImlhdCI6MTY4NDU3NjQ5OCwiZXhwIjoxNjg0NTgwMDk4fQ.houRtA_ZH30nUJMtD9Qlr3y3CSi-pxkAqXjowxitgr0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/ratings/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ratings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/films/name/khan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/films/name/khan",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"films",
+						"name",
+						"khan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
