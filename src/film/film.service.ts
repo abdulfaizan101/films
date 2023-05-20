@@ -17,7 +17,10 @@ export class FilmService {
     return this.filmRepository.find();
   }
 
-  async getFilmById(id: number) {
+  async getFilmById(id: number, userId: number) {
+    if(userId != -2){
+      return this.filmRepository.findOne({where: {id,userId}});
+    }
     return this.filmRepository.findOne({where: {id}});
   }
 
@@ -38,25 +41,24 @@ export class FilmService {
     try {      
       let data = this.jwtService.verify(filmDto.token);
       if(data.id){
-        const film = await this.getFilmById(id);
+        const film = await this.getFilmById(id,filmDto.userId);
         if (!film) {
           throw new Error('Film not found');
         }
-
         const updatedFilm = { ...film, ...filmDto };
         return this.filmRepository.save(updatedFilm);
       }
       return 'Error';
     } catch (error) {
-      return "Token Invalid"      
+      return "someThing went wrong."      
     }
   }
 
-  async deleteFilm(id: number, token: string) {
+  async deleteFilm(id: number, token: string, userId: number) {
     try {      
       let data = this.jwtService.verify(token);
       if(data.id){
-        const film = await this.getFilmById(id);
+        const film = await this.getFilmById(id,userId);
         if (!film) {
           throw new Error('Film not found');
         }

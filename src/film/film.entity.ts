@@ -26,6 +26,9 @@ export class Film {
   @Column()
   photo: string;
 
+  @Column({ name: 'avg_rating' })
+  avgRating: number;
+
   @Column({ name: 'user_id' })
   userId: number;
 }

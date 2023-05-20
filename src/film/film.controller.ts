@@ -13,7 +13,7 @@ export class FilmController {
 
   @Get(':id')
   getFilmById(@Param('id') id: number) {
-    return this.filmService.getFilmById(id);
+    return this.filmService.getFilmById(id,-2);
   }
 
   @Post()
@@ -27,7 +27,7 @@ export class FilmController {
   }
 
   @Delete(':id')
-  deleteFilm(@Param('id') id: number, @Param('token') token: string) {
-    return this.filmService.deleteFilm(id,token);
+  deleteFilm(@Param('id') id: number, @Param('userId') userId: number, @Param('token') token: string) {
+    return this.filmService.deleteFilm(id,token,userId);
   }
 }

@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './user/users.module';
 import { FilmModule } from './film/film.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { FilmModule } from './film/film.module';
       synchronize: true,
     }),
     UsersModule,
+    CommentModule,
     FilmModule,
   ],
 })
